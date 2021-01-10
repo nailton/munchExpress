@@ -14,8 +14,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
-        return view('dashboard', compact('menus'));
+        $resto_id = [1];
+        $categories = Menu::whereIn('resto_id', $resto_id)->get()->groubBy('category.name');
+        return $categories;
+        return view('dashboard', compact('categories'));
     }
 
     /**
