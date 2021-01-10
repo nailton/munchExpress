@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Services\MenuService;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,11 +13,11 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(MenuService $service)
     {
-        $resto_id = [1];
-        $categories = Menu::whereIn('resto_id', $resto_id)->get()->groubBy('category.name');
-        return $categories;
+        $resto_ids = [1];
+        $categories = $service->getMenuWithCategory($resto_ids);
+
         return view('dashboard', compact('categories'));
     }
 
