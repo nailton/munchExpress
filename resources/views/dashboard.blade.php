@@ -6,14 +6,22 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                    <menu-container :items="{{ json_encode($categories) }}"></menu-container>
+        <div class="flex sm:px-8 lg:px-8">
+            <div class="w-2/3">
+            <menu-container :items="{{$menus}}"/>
+            </div>
+
+            <div class="w-1/3">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        asdfdf
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
+
+
 </x-app-layout>
 

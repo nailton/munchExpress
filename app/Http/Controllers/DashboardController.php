@@ -16,9 +16,9 @@ class DashboardController extends Controller
     public function index(MenuService $service)
     {
         $resto_ids = [1];
-        $categories = $service->getMenuWithCategory($resto_ids);
+        $menus = $service->getMenuWithCategory($resto_ids);
 
-        return view('dashboard', compact('categories'));
+        return view('dashboard', compact('menus'));
     }
 
     /**
